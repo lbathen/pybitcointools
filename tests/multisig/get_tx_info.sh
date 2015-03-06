@@ -9,5 +9,4 @@ then
     UTXO_TXID=$1
 fi
 
-#$CLI -regtest getrawtransaction $UTXO_TXID 1
-$CLI -regtest decoderawtransaction $UTXO_TXID
+$CLI -regtest getrawtransaction $UTXO_TXID 1
