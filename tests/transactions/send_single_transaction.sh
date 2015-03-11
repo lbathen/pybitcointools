@@ -1,6 +1,12 @@
 #!/bin/sh
 
+CLI="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli"
 
-SIGNED_RAW_TX=0100000001090eda99a7df28b7ed102a5281de3de61129b909a2af6a054332be32ec72b2e10000000049483045022100a869cb0bb9ddba80f88b34a348caab3ecc3a09449f5c541acc3f4aca65fb99da02207396ce67a2ab0ffa67ab0db32f0d5642823149b4da2d5a8fd0989de05774ad1201ffffffff01f0ca052a010000001976a91438d6f3fb2c59c65c87d2e1bb7d7f7f15b50e31e388ac00000000
+if  [ $# -eq 1 ];
+then
+    SIGNED_RAW_TX=$1
+else
+    SIGNED_RAW_TX=0100000001013f65944ea80381aa4c5c2304fa16bf0c2ca2d47539e87de74515d921105f050000000000ffffffff01e0aa029500000000096d010101029301039d00000000
+fi
 
-bitcoin-cli -regtest sendrawtransaction $SIGNED_RAW_TX
+$CLI -regtest sendrawtransaction $SIGNED_RAW_TX

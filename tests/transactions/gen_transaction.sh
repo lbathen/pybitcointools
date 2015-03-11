@@ -1,14 +1,32 @@
 #!/bin/sh
 
-btcli="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli -regtest"
+#btcli="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli -regtest"
+CLI="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli"
 
 #Get transactions with:
 #bitcoin-cli -regtest listunspent
 
-UTXO_TXID=78fd35aed60f8059472b9d6fdf1a07e99bba7f54c1668fd57876b2f22006e8aa
-UTXO_VOUT=0
-NEW_ADDRESS=mpjvp2nKiE4bSC9SW3vWXM8TKsmBHyLXNa
+AMOUNT=25.00
+#AMOUNT=49.00
 
-$btcli createrawtransaction ''' [ { "txid": "'$UTXO_TXID'", "vout": '$UTXO_VOUT'} ] ''' ''' { "'$NEW_ADDRESS'": 49.9999 }'''
+if  [ $# -eq 2 ];
+then
+    UTXO_VOUT=0
+    UTXO_TXID=$1
+    NEW_ADDRESS=$2
+else
+    UTXO_TXID=055f1021d91545e77de83975d4a22c0cbf16fa04235c4caa8103a84e94653f01
+    UTXO_VOUT=0
+    NEW_ADDRESS=n3HAvb4Smqzw8bWxdcvXcSEaSGnNCQ4i4D
+fi
+
+if  [ $# -eq 3 ];
+then
+    UTXO_TXID=$1
+    NEW_ADDRESS=$2
+    AMOUNT=$3
+fi
+
+$CLI -regtest createrawtransaction ''' [ { "txid": "'$UTXO_TXID'", "vout": '$UTXO_VOUT'} ] ''' ''' { "'$NEW_ADDRESS'": '$AMOUNT' }'''
 
 

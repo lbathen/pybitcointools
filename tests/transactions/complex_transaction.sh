@@ -1,4 +1,5 @@
 #!/bin/sh
+CLI="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli"
 
 UTXO1_TXID=e4f4301230b93ba786741cf5bf925dfc5c4f654148ae1fccf7dcfb2cac793a17
 UTXO1_VOUT=0
@@ -16,4 +17,4 @@ NEW_ADDRESS1=n1gk5SrHAzsSZr2MjnR8vXbjtge8DBxGE9
 NEW_ADDRESS2=mpC3EM2jMpeRYqGNmpmXPsMNdr1RKbpJD1
 
 
-bitcoin-cli -regtest createrawtransaction '''[{"txid": "'$UTXO1_TXID'", "vout": '$UTXO1_VOUT'}, {"txid": "'$UTXO2_TXID'","vout": '$UTXO2_VOUT'}]''' '''{"'$NEW_ADDRESS1'": 89.9999, "'$NEW_ADDRESS2'": 10.00 }'''
+$CLI -regtest createrawtransaction '''[{"txid": "'$UTXO1_TXID'", "vout": '$UTXO1_VOUT'}, {"txid": "'$UTXO2_TXID'","vout": '$UTXO2_VOUT'}]''' '''{"'$NEW_ADDRESS1'": 89.9999, "'$NEW_ADDRESS2'": 10.00 }'''

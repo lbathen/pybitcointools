@@ -1,4 +1,12 @@
 #!/bin/sh
 
-RAW_TX=0100000001090eda99a7df28b7ed102a5281de3de61129b909a2af6a054332be32ec72b2e10000000000ffffffff01f0ca052a010000001976a91438d6f3fb2c59c65c87d2e1bb7d7f7f15b50e31e388ac00000000
-bitcoin-cli -regtest decoderawtransaction $RAW_TX
+CLI="/Users/labathen/Development/maidenlane/bitcoin-danny/src/bitcoin-cli"
+
+if  [ $# -eq 1 ];
+then
+    RAW_TX=$1
+else
+    RAW_TX=0100000001f2d6ab87fd907e6f32fc0f35125dcf3af888f1fd008590b7377781048674b03b0000000000ffffffff01f0ca052a010000001976a914d4708a1f1e85d48895e4cb8310e576cc903618c088ac00000000
+fi
+
+$CLI -regtest decoderawtransaction $RAW_TX
